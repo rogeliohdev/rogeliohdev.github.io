@@ -8,106 +8,147 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
     <style>
         body { font-family: 'Inter', system-ui, sans-serif; }
-        .hero-bg { background: linear-gradient(135deg, #0a2540 0%, #1e3a5f 100%); }
+        .hero-bg { background: linear-gradient(135deg, #0f172a 0%, #1e2937 100%); }
+        .glass { background: rgba(255,255,255,0.1); backdrop-filter: blur(12px); }
+        .card-hover { transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1); }
+        .card-hover:hover { transform: translateY(-12px) scale(1.03); box-shadow: 0 25px 50px -12px rgb(0 0 0 / 0.25); }
+        .timeline-dot { animation: pulse 2s infinite; }
     </style>
 </head>
-<body class="bg-gray-50">
+<body class="bg-slate-950 text-slate-200">
+
+    <!-- NAVBAR -->
+    <nav class="fixed top-0 left-0 right-0 bg-slate-950/90 backdrop-blur-md z-50 border-b border-slate-800">
+        <div class="max-w-6xl mx-auto px-6 py-5 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold tracking-tight">Rogelio Novelo</a>
+            <div class="flex gap-8 text-sm font-medium">
+                <a href="#sobre" class="hover:text-blue-400 transition">Sobre mí</a>
+                <a href="#habilidades" class="hover:text-blue-400 transition">Habilidades</a>
+                <a href="#experiencia" class="hover:text-blue-400 transition">Experiencia</a>
+                <a href="#proyectos" class="hover:text-blue-400 transition">Proyectos</a>
+                <a href="#formacion" class="hover:text-blue-400 transition">Formación</a>
+            </div>
+        </div>
+    </nav>
 
     <!-- HERO -->
-    <header class="hero-bg text-white py-20">
-        <div class="max-w-5xl mx-auto px-6 text-center">
-            <h1 class="text-5xl font-bold mb-2">Rogelio Novelo</h1>
-            <p class="text-2xl mb-6">Data Engineer • Python • SQL • ETL Pipelines</p>
-            <div class="flex justify-center gap-6 text-xl">
-                <a href="https://github.com/rogeliohdev" target="_blank" class="hover:text-blue-300"><i class="fab fa-github"></i></a>
-                <a href="https://linkedin.com/in/rogelio-novelo" target="_blank" class="hover:text-blue-300"><i class="fab fa-linkedin"></i></a>
+    <header class="hero-bg pt-28 pb-20 text-center">
+        <div class="max-w-4xl mx-auto px-6">
+            <h1 class="text-6xl md:text-7xl font-bold mb-4 bg-gradient-to-r from-blue-400 to-cyan-400 bg-clip-text text-transparent">Rogelio Novelo</h1>
+            <p class="text-3xl md:text-4xl text-slate-400 mb-8">Data Engineer • Python • SQL • ETL Pipelines</p>
+            <div class="flex justify-center gap-6 mb-10">
+                <a href="https://github.com/rogeliohdev" target="_blank" class="text-4xl hover:text-blue-400 transition"><i class="fab fa-github"></i></a>
+                <a href="https://linkedin.com/in/rogelio-novelo" target="_blank" class="text-4xl hover:text-blue-400 transition"><i class="fab fa-linkedin"></i></a>
             </div>
-            <a href="https://raw.githubusercontent.com/rogeliohdev/rogeliohdev.github.io/main/CV-RogelioNovelo.pdf" 
-               class="mt-8 inline-block bg-white text-blue-900 px-8 py-4 rounded-full font-semibold hover:bg-blue-100 transition">
-                📄 Descargar CV (PDF)
+            <a href="CV-RogelioNovelo.pdf" 
+               class="inline-flex items-center gap-3 bg-white text-slate-900 px-10 py-5 rounded-2xl font-semibold text-lg hover:bg-blue-400 hover:text-white transition-all">
+                <i class="fas fa-download"></i>
+                Descargar CV (PDF)
             </a>
         </div>
     </header>
 
-    <div class="max-w-5xl mx-auto px-6 py-12">
+    <div class="max-w-6xl mx-auto px-6 py-16">
 
-        <!-- ABOUT -->
-        <section class="mb-16">
-            <h2 class="text-3xl font-bold mb-4 text-gray-800">Sobre mí</h2>
-            <p class="text-lg text-gray-700 leading-relaxed">
-                Ingeniero de Datos junior apasionado por construir pipelines end-to-end, automatizar procesos y transformar datos crudos en información útil. 
-                Experiencia práctica en sistemas clínicos, análisis de datos ambientales y desarrollo de aplicaciones. 
-                B2 en inglés y fuerte enfoque en calidad y eficiencia.
+        <!-- SOBRE MÍ -->
+        <section id="sobre" class="mb-24">
+            <h2 class="text-4xl font-bold mb-8 flex items-center gap-3"><span class="text-blue-400">01.</span> Sobre mí</h2>
+            <p class="text-xl leading-relaxed text-slate-400 max-w-3xl">
+                Ingeniero de Datos junior apasionado por construir pipelines end-to-end, automatizar procesos complejos y transformar datos crudos en información accionable. 
+                Experiencia real en sistemas clínicos, análisis ambiental y desarrollo de aplicaciones. B2 en inglés y fuerte enfoque en calidad, eficiencia y trabajo en equipo.
             </p>
         </section>
 
-        <!-- SKILLS -->
-        <section class="mb-16">
-            <h2 class="text-3xl font-bold mb-6 text-gray-800">Habilidades Técnicas</h2>
+        <!-- HABILIDADES -->
+        <section id="habilidades" class="mb-24">
+            <h2 class="text-4xl font-bold mb-8 flex items-center gap-3"><span class="text-blue-400">02.</span> Habilidades Técnicas</h2>
             <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
-                <div class="bg-white p-4 rounded-xl shadow-sm">Python (Pandas, NumPy, Scikit-Learn)</div>
-                <div class="bg-white p-4 rounded-xl shadow-sm">SQL (SQLite, SQL Server)</div>
-                <div class="bg-white p-4 rounded-xl shadow-sm">ETL Pipelines &amp; Data Modeling</div>
-                <div class="bg-white p-4 rounded-xl shadow-sm">Streamlit • Git • Matplotlib</div>
-                <div class="bg-white p-4 rounded-xl shadow-sm">Machine Learning (Regresión Lineal)</div>
-                <div class="bg-white p-4 rounded-xl shadow-sm">Database Normalization &amp; Migration</div>
+                <div class="glass p-6 rounded-3xl text-center card-hover">Python (Pandas, NumPy, Scikit-Learn)</div>
+                <div class="glass p-6 rounded-3xl text-center card-hover">SQL (SQLite, SQL Server)</div>
+                <div class="glass p-6 rounded-3xl text-center card-hover">ETL Pipelines &amp; Data Modeling</div>
+                <div class="glass p-6 rounded-3xl text-center card-hover">Streamlit • Git • Matplotlib</div>
+                <div class="glass p-6 rounded-3xl text-center card-hover">Machine Learning (Regresión Lineal)</div>
+                <div class="glass p-6 rounded-3xl text-center card-hover">Database Normalization &amp; Migration</div>
             </div>
         </section>
 
-        <!-- PROJECTS -->
-        <section class="mb-16">
-            <h2 class="text-3xl font-bold mb-6 text-gray-800">Proyectos Destacados</h2>
+        <!-- EXPERIENCIA -->
+        <section id="experiencia" class="mb-24">
+            <h2 class="text-4xl font-bold mb-8 flex items-center gap-3"><span class="text-blue-400">03.</span> Experiencia</h2>
+            <div class="space-y-12">
+                <div class="flex gap-8">
+                    <div class="w-28 text-right shrink-0">
+                        <p class="font-mono text-blue-400">2023 — 2024</p>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-semibold">Programmer / Content Developer</h3>
+                        <p class="text-slate-400">London House Academy (Remoto) • Ciudad de México</p>
+                        <ul class="mt-4 text-slate-400 list-disc pl-5 space-y-2">
+                            <li>Mantenimiento y optimización de plataforma gamificada de aprendizaje de inglés.</li>
+                            <li>Desarrollo de ejercicios interactivos con lógica JSON.</li>
+                            <li>Bug fixing y colaboración directa con liderazgo.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="flex gap-8">
+                    <div class="w-28 text-right shrink-0">
+                        <p class="font-mono text-blue-400">Ene — Abr 2026</p>
+                    </div>
+                    <div>
+                        <h3 class="text-2xl font-semibold">Restaurant Manager</h3>
+                        <p class="text-slate-400">Tokio 07 Japanese Restaurant • Mérida, Yucatán</p>
+                        <ul class="mt-4 text-slate-400 list-disc pl-5 space-y-2">
+                            <li>Liderazgo de operaciones diarias en ambiente de alta presión.</li>
+                            <li>Gestión de inventario, servicio al cliente y optimización de procesos.</li>
+                            <li>Desarrollo de habilidades de liderazgo y resolución de problemas.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- PROYECTOS -->
+        <section id="proyectos" class="mb-24">
+            <h2 class="text-4xl font-bold mb-8 flex items-center gap-3"><span class="text-blue-400">04.</span> Proyectos Destacados</h2>
             
-            <div class="space-y-10">
-                <div>
-                    <h3 class="text-xl font-semibold">Sistema de Ingeniería de Datos para Gestión Clínica</h3>
-                    <p class="text-gray-600 text-sm">Ago 2025 – Mar 2026 | Python • SQLite • Streamlit</p>
-                    <p class="mt-2">Arquitectura end-to-end para digitalizar datos clínicos de Pie Diabético. Incluye clasificación automática de escalas WIfI y TIME + modelo de regresión lineal para predecir HbA1c.</p>
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- Proyecto Clínico -->
+                <div class="glass p-8 rounded-3xl card-hover">
+                    <h3 class="text-2xl font-semibold mb-2">Sistema de Ingeniería de Datos para Gestión Clínica</h3>
+                    <p class="text-blue-400 text-sm mb-4">Mayo 2025 — Agosto 2025 • Python • SQLite • Streamlit</p>
+                    <p class="text-slate-400">Arquitectura end-to-end para digitalizar datos clínicos de Pie Diabético. Clasificación automática de escalas WIfI y TIME + modelo de regresión lineal para predecir HbA1c.</p>
                 </div>
 
-                <div>
-                    <h3 class="text-xl font-semibold">Automatización de Análisis de Datos Piezométricos</h3>
-                    <p class="text-gray-600 text-sm">May 2024 – Ago 2024 | Python • Pandas • Matplotlib</p>
-                    <p class="mt-2">Herramienta para CONAGUA que limpia, analiza y visualiza grandes datasets de monitoreo de agua subterránea. Mejora significativa en eficiencia operativa.</p>
+                <!-- Proyecto Piezométrico -->
+                <div class="glass p-8 rounded-3xl card-hover">
+                    <h3 class="text-2xl font-semibold mb-2">Automatización de Análisis de Datos Piezométricos</h3>
+                    <p class="text-blue-400 text-sm mb-4">Mayo 2024 — Agosto 2024 • Python • Pandas • Matplotlib</p>
+                    <p class="text-slate-400">Herramienta para CONAGUA que limpia, analiza y visualiza grandes datasets de monitoreo de agua subterránea. Mejora significativa en eficiencia operativa.</p>
                 </div>
             </div>
         </section>
 
-        <!-- EXPERIENCE -->
-        <section class="mb-16">
-            <h2 class="text-3xl font-bold mb-6 text-gray-800">Experiencia</h2>
-            <div class="space-y-8">
-                <div>
-                    <div class="flex justify-between">
-                        <h3 class="font-semibold">Programmer / Content Developer</h3>
-                        <span class="text-gray-500">Ene 2024 – Sep 2025</span>
-                    </div>
-                    <p class="text-gray-600">London House Academy (Remoto)</p>
-                </div>
-                <div>
-                    <div class="flex justify-between">
-                        <h3 class="font-semibold">Restaurant Manager</h3>
-                        <span class="text-gray-500">10 Ene – 12 Abr 2025</span>
-                    </div>
-                    <p class="text-gray-600">Tokio 07 Japanese Restaurant, Mérida</p>
-                </div>
+        <!-- FORMACIÓN -->
+        <section id="formacion">
+            <h2 class="text-4xl font-bold mb-8 flex items-center gap-3"><span class="text-blue-400">05.</span> Formación Académica</h2>
+            <div class="glass p-8 rounded-3xl">
+                <h3 class="text-2xl font-semibold">Ingeniería en Datos (Programa Bilingüe)</h3>
+                <p class="text-slate-400">Universidad Politécnica de Yucatán (UPY) • Mérida, Yucatán</p>
+                <p class="text-sm text-blue-400 mt-2">Sep 2022 — Expected Early 2026</p>
+                <p class="mt-4 text-slate-400">Cursando último cuatrimestre • Inglés B2 (iTEP Plus Certified)</p>
             </div>
-        </section>
-
-        <!-- EDUCATION -->
-        <section>
-            <h2 class="text-3xl font-bold mb-6 text-gray-800">Formación</h2>
-            <p><strong>Ingeniería en Datos (Programa Bilingüe)</strong><br>
-            Universidad Politécnica de Yucatán (UPY)<br>
-            Sep 2022 – Expected Early 2026</p>
         </section>
 
     </div>
 
     <!-- FOOTER -->
-    <footer class="bg-gray-900 text-white py-8 text-center">
-        <p>📍 Mérida, Yucatán • 📧 rogelionoveloz@gmail.com • 📱 +52 999 706 9868</p>
-        <p class="mt-2">© 2026 Rogelio Novelo • Hecho con ❤️ y GitHub Pages</p>
+    <footer class="bg-slate-900 py-12 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto px-6 text-center text-slate-400">
+            <p>📍 Mérida, Yucatán • 📧 rogelionoveloz@gmail.com • 📱 +52 999 706 9868</p>
+            <p class="mt-4 text-sm">© 2026 Rogelio Novelo • Hecho con pasión y mucho café ☕</p>
+        </div>
     </footer>
+
 </body>
 </html>
